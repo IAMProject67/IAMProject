@@ -1,0 +1,53 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/azurayap/public_html/
+    - /bin/cp home.html $DEPLOYPATH
+     - /bin/cp device.html $DEPLOYPATH
+      - /bin/cp produk.html $DEPLOYPATH
+       - /bin/cp liquid.html $DEPLOYPATH
+        - /bin/cp TETOKAM.html $DEPLOYPATH
+         - /bin/cp MINIKOPI.html $DEPLOYPATH
+          - /bin/cp atomizer.html $DEPLOYPATH
+           - /bin/cp (ACC)Batrai Kdest Merah Putih 2400mah 40A.html $DEPLOYPATH
+                      - /bin/cp (ACC)Batrai Kdest Merah Putih 2400mah 40A.html $DEPLOYPATH
+           - /bin/cp (ACC)Batrai Kdest Merah Putih 2400mah 40A.html $DEPLOYPATH
+           - /bin/cp (ACC)CartridgeArgusPodV23ML0.4ohm 40A.html $DEPLOYPATH
+           - /bin/cp (ACC)Batrai Kdest Merah Putih 2400mah 40A.html $DEPLOYPATH
+           - /bin/cp (ACC)CartridgeHezi0.8.html $DEPLOYPATH
+           - /bin/cp (ACC)case r233.html $DEPLOYPATH
+           - /bin/cp (ACC)Charger VRK F2 Type C.html $DEPLOYPATH
+           - /bin/cp (ACC)COILOxva0.3ohm.html $DEPLOYPATH
+           - /bin/cp (ACC)COILOxva0.3ohm.html $DEPLOYPATH
+           - /bin/cp (ACC)CoilSuperSonixDeathVomit.html $DEPLOYPATH
+           - /bin/cp (ACC)cotton monster premium.html $DEPLOYPATH
+           - /bin/cp (ACC)cotton monster.html $DEPLOYPATH
+            /bin/cp (ACC)diy.html $DEPLOYPATH
+             /bin/cp (ACC)driptip.html $DEPLOYPATH
+              /bin/cp (ACC)Inner Button BB Zeza.html $DEPLOYPATH
+               /bin/cp (ACC)VRK 3750mah 40A 21700.html $DEPLOYPATH
+                /bin/cp (ATOMIZER) RTA Neeko Gunmetal.html $DEPLOYPATH
+                 /bin/cp (ATOMIZER)RBAMonarchyMSScepter.html $DEPLOYPATH
+                  /bin/cp (ATOMIZER)RBASturdtOneClone.html $DEPLOYPATH
+                   /bin/cp (ATOMIZER)RBATita.html $DEPLOYPATH
+                    /bin/cp (ATOMIZER)RDARemadeProjects.html $DEPLOYPATH
+                     /bin/cp (ATOMIZER)RdaREQUIEMgold.html $DEPLOYPATH
+                      /bin/cp (ATOMIZER)RDATotXDualCoilSS.html $DEPLOYPATH
+                       /bin/cp (ATOMIZER)RTA Gear V2 Rainbow.html $DEPLOYPATH
+                        /bin/cp (ATOMIZER)RTA Zombie Fummy Authentic.html $DEPLOYPATH
+                         /bin/cp (ACC)cotton monster.html $DEPLOYPATH
+                          /bin/cp (DEVICE)CentaurusQ200.html $DEPLOYPATH
+                          /bin/cp (DEVICE)DotAio V2 Lite Red SPEK.html $DEPLOYPATH
+                          /bin/cp (DEVICE)Dovpo MVP II Coil Gear Sakura Pink SPEK.html $DEPLOYPATH
+                          /bin/cp (DEVICE) Pod X Brilliant Gold SPEK.html $DEPLOYPATH
+                          /bin/cp (DEVICE)Foom Pod X Bundling Space Gray Icy Menthol.html $DEPLOYPATH
+                          /bin/cp (DEVICE) Pod X Wild Purple SPEK.html $DEPLOYPATH
+                          /bin/cp (DEVICE) Gear Box Mod V1 Black SPEK.html $DEPLOYPATH
+                          /bin/cp (DEVICE) Hastur Aio Elegant Black Atom85.html $DEPLOYPATH
+                          /bin/cp (DEVICE) Dovpo MVV 2 Carbon Green.html $DEPLOYPATH
+                          /bin/cp (DEVICE) Mod Rhea 200W Retro Brown.html $DEPLOYPATH
+                          /bin/cp (DEVICE) Pod Jarvis Pro Kit Amber Red.html $DEPLOYPATH
+
+    - /bin/cp style.css $DEPLOYPATH
+    - /bin/cp searchbar.js $DEPLOYPATH
+    - /bin/cp -R images $DEPLOYPATH
