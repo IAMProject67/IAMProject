@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Azuraya Vapor Store Purnama</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="searchbar.js" defer></script>
+    <style>
+        body {
+            font-family: Times New Roman, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--header-bg, #fcf346);
+            color: var(--header-color, #040400);
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        header .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        header .logo img {
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+        }
+
+        header .logo span {
+            font-size: 30px;
+            font-weight: bold;
+        }
+
+        header nav {
+            display: flex;
+            gap: 20px;
+        }
+
+        header nav a {
+            color: var(--nav-link-color, #000);
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        header nav a:hover {
+            color: var(--nav-link-hover-color, #555);
+        }
+
+
+        /* Hero Section */
+        .hero {
+            background: url('hero-image.jpg') no-repeat center center/cover;
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--hero-text-color, black);
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 50px;
+            margin: 0;
+        }
+
+        .hero p {
+            font-size: 20px;
+        }
+
+        .hero button {
+            padding: 10px 20px;
+            font-size: 18px;
+            background-color: var(--button-bg, #fcf346);
+            border: none;
+            cursor: pointer;
+            border-radius: 50px;
+        }
+
+        .hero button:hover {
+            background-color: var(--button-hover-bg, #000);
+            color: var(--button-hover-color, #fff);
+        }
+
+        /* Categories Section */
+        .categories {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 65px;
+            margin: 20px;
+            justify-content: center;
+            margin-bottom: 40px; /* Menambahkan jarak bawah untuk kategori */
+            position: relative;
+            transform: translateY(-50%); /* Menurunkan kategori 20% ke atas */
+        }
+
+        .category {
+            background-color: var(--category-bg, #fcf346);
+            border: 1px solid var(--category-border, #ddd);
+            border-radius: 50%;
+            padding: 20px;
+            text-align: center;
+            width: 100px;
+            height: 100px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .category img {
+            width: 70px;
+            height: 70px;
+            object-fit: contain;
+            margin-bottom: 10px;
+        }
+
+        .category p {
+            margin: 0;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .category:hover {
+            transform: scale(1.1);
+        }
+
+        .categories a {
+    text-decoration: none;
+    color: inherit; /* Warna teks mengikuti elemen dalam kategori */
+}
+
+.suggestions-container {
+        position: absolute;
+        background: #fff;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        max-height: 150px;
+        overflow-y: auto;
+        z-index: 999;
+        width: 100%;
+    }
+
+    .suggestion-item {
+        padding: 10px;
+        cursor: pointer;
+        font-size: 14px;
+    }
+
+    .suggestion-item:hover {
+        background-color: #f0f0f0;
+    }
+
+
+        /* Video Container */
+        .video-container {
+            display: flex;
+            justify-content: center;
+            align-items: center; /* Menambahkan untuk memastikan video juga terpusat secara vertikal */
+            margin-top: 20px;
+            clear: both;
+            height: 400px; /* Sesuaikan jika diperlukan */
+            position: relative; /* Menambahkan posisi relatif untuk mengatur transform */
+            transform: translateY(-10%); /* Menurunkan kategori 50% ke atas */
+        }
+
+        .video-container video {
+            max-width: 100%;
+            width: 800px;
+            height: auto;
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            background-color: var(--testimonials-bg, #f9f9f9);
+            padding: 40px;
+            text-align: center;
+        }
+
+        .testimonials h2 {
+            margin-bottom: 20px;
+            font-size: 28px;
+        }
+
+        .testimonials p {
+            font-size: 18px;
+            font-style: italic;
+        }
+
+        .about-us video {
+            width: 80%;
+            max-width: 800px;
+            margin: -80px 0 100px 0px;
+            border-radius: 10px;
+        }
+
+        /* Dropdown */
+        header .categories-dropdown {
+            position: relative;
+        }
+
+        header .categories-dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        header .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: var(--dropdown-bg, #fff);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 10px 0;
+            border-radius: 8px;
+            z-index: 999;
+        }
+
+        header .dropdown-menu a {
+            display: block;
+            padding: 10px 20px;
+            color: var(--nav-link-color, #000);
+            text-decoration: none;
+            font-size: 16px;
+            white-space: nowrap;
+        }
+
+        header .dropdown-menu a:hover {
+            background-color: var(--dropdown-hover-bg, #fcf346);
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo">
+        <img src="logo-1.png" alt="Azuraya Logo">
+        <span>AZURAYA</span>
+    </div>
+    <div class="search-box">
+        <input type="text" id="search-input" placeholder="Search for products, brands, or shops..." oninput="showSuggestions()">
+        <div class="suggestions" id="suggestions"></div>
+    </div>
+    <nav>
+        <a href="home.html">Home</a>
+        <div class="categories-dropdown">
+            <a href="#">Categories</a>
+            <div class="dropdown-menu">
+                <a href="ACCESORIST.html">Accessories</a>
+                <a href="liquid.html">Liquid Freebase/Saltnic</a>
+                <a href="Atomizer.html">Atomizer</a>
+                <a href="device.html">Device</a>
+                <a href="MINIKOPI.HTML">Minikopi</a>
+            </div>
+        </div>
+        <a href="produk.html">Products</a>
+        <a href="TETOKAM.html">Tentang Kami</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <div>
+        <h1>Welcome to Azuraya</h1>
+        <p>Your trusted vapor store with exclusive deals and collections.</p>
+    </div>
+</section>
+
+<section class="categories">
+    <a href="ACCESORIST.html" class="category">
+        <img src="logo-1.png" alt="Accessories">
+        <p>Accessories</p>
+    </a>
+    <a href="liquid.html" class="category">
+        <img src="logo-1.png" alt="Liquid">
+        <p>Liquid</p>
+    </a>
+    <a href="atomizer.html" class="category">
+        <img src="logo-1.png" alt="Atomizer">
+        <p>Atomizer</p>
+    </a>
+    <a href="device.html" class="category">
+        <img src="logo-1.png" alt="Coil">
+        <p>Device</p>
+    </a>
+    <a href="minikopi.html" class="category">
+        <img src="logo-1.png" alt="Minikopi">
+        <p>Minikopi</p>
+    </a>
+</section>
+
+
+<!-- Video section -->
+<section class="video-container">
+    <video controls>
+        <source src="azuraya.mp4" type="video/mp4 ">
+        Your browser does not support the video tag.
+    </video>
+</section>
+
+
+<footer>
+    <div class="footer-column">
+        <h4>Azuraya Vape Store Purnama</h4>
+        <p>Azuraya merupakan retail Vape Store yang sudah berdiri sejak 8 tahun yang lalu, dimana sudah tidak perlu diragukan lagi pengalaman serta pelayanan yang diberikan oleh Azuraya dimana Azuraya ingin menjadi Vape Store terlengkap, terjangkau, serta terpercaya.</p>
+    </div>
+    <div class="footer-column">
+        <h4>TAUTAN LANGSUNG</h4>
+        <a href="#">Beranda</a><br>
+        <a href="#">Shop</a><br>
+        <a href="#">Tentang Kami</a><br>
+        <a href="#">Mendukung</a><br>
+        <a href="#">Berita</a>
+    </div>
+    <div class="footer-column">
+        <h4>HUBUNGI KAMI</h4>
+        <p>Jika Anda memiliki pertanyaan atau ingin berkomunikasi langsung, hubungi kami sosial media kami yang tercantum.</p>
+        <div class="social-icons">
+            <a href="https://www.instagram.com/azuraya_purnama/" target="_blank">
+                <img src="ig-icon.png" width="23 px" alt="Instagram Icon">
+            </a>
+            <a href="http://wa.link/8zu5j5" target="_blank">
+                <img src="wa-icon.png" width="33 px" alt="WhatsApp Icon">
+            </a>
+            <a href="https://www.tiktok.com/@azuraya.purnama?is_from_webapp=1&sender_device=pc" target="_blank">
+                <img src="tiktok-icon.png" width="30px" alt="TikTok Icon">
+            </a>
+        </div>
+    </div>
+    <section id="search-results" class="search-results">
+        <!-- Hasil pencarian akan ditampilkan di sini -->
+    </section>
+  </footer>
+  
+  <script>
+    function setTheme(theme) {
+        const root = document.documentElement;
+        if (theme === 'default') {
+            root.style.setProperty('--header-bg', '#fcf346');
+            root.style.setProperty('--header-color', '#040400');
+            root.style.setProperty('--nav-link-color', '#000');
+            root.style.setProperty('--nav-link-hover-color', '#555');
+            root.style.setProperty('--hero-text-color', 'black');
+            root.style.setProperty('--button-bg', '#fcf346');
+            root.style.setProperty('--button-hover-bg', '#000');
+            root.style.setProperty('--button-hover-color', '#fff');
+            root.style.setProperty('--footer-bg', '#333');
+            root.style.setProperty('--footer-color', '#fff');
+            root.style.setProperty('--footer-link-color', '#fcf346');
+        }
+    }
+  </script>
+
+</body>
+</html>

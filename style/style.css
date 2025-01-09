@@ -1,0 +1,266 @@
+/* Search Box */
+header .search-box {
+    position: relative;
+    flex: 1;
+    max-width: 500px; /* Batasi lebar maksimal untuk responsif */
+    margin: 0 auto; /* Pusatkan secara horizontal */
+}
+
+header .search-box input {
+    width: 100%;
+    padding: 10px 20px;
+    border: 1px solid #ddd;
+    border-radius: 25px;
+    font-size: 16px;
+    box-sizing: border-box; /* Pastikan padding tidak memengaruhi ukuran total */
+}
+
+header .search-box .suggestions {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    max-height: 150px;
+    overflow-y: auto;
+    z-index: 999;
+    display: none;
+}
+
+header .search-box .suggestion-item {
+    padding: 10px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+header .search-box .suggestion-item:hover {
+    background-color: #f0f0f0;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+    header .search-box {
+        max-width: 90%; /* Sesuaikan dengan lebar layar yang lebih kecil */
+    }
+
+    header .search-box input {
+        font-size: 14px; /* Kurangi ukuran font pada layar kecil */
+        padding: 8px 15px;
+    }
+}
+
+
+
+.search-results {
+    margin: 20px auto;
+    padding: 20px;
+    max-width: 800px;
+    text-align: center;
+}
+
+.search-results .result-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    margin: 10px 0;
+    background: #fcf346;
+    color: #000;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background 0.3s ease;
+}
+
+.search-results .result-item img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-right: 10px;
+}
+
+.search-results .result-item span {
+    font-size: 18px;
+    flex-grow: 1;
+    text-align: left;
+}
+
+.search-results .result-item:hover {
+    background: #000;
+    color: #fff;
+}
+
+
+/* Search Box */
+header .search-box {
+    position: relative;
+    flex: 1;
+}
+
+header .search-box input {
+    width: 70%;
+    padding: 5px 20px;
+    border: 1px solid #ddd;
+    border-radius: 25px;
+    font-size: 14px;
+}
+
+header .search-box .suggestions {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    max-height: 150px;
+    overflow-y: auto;
+    z-index: 999;
+    display: none;
+}
+
+header .search-box .suggestion-item {
+    padding: 10px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+header .search-box .suggestion-item:hover {
+    background-color: #f0f0f0;
+}
+/* Search Box */
+header .search-box {
+    position: relative;
+    flex: 1;
+}
+
+header .search-box input {
+    width: 70%;
+    padding: 5px 20px;
+    border: 1px solid #ddd;
+    border-radius: 25px;
+    font-size: 14px;
+}
+
+header .search-box .suggestions {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    max-height: 150px;
+    overflow-y: auto;
+    z-index: 999;
+    display: none;
+}
+
+header .search-box .suggestion-item {
+    padding: 10px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+header .search-box .suggestion-item:hover {
+    background-color: #f0f0f0;
+}
+ 
+ 
+ 
+ 
+ /* Footer */
+ footer {
+    background-color: #111;
+    color: #fff;
+    padding: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-top: 10%; /* This creates a 10% gap from the video section */
+}
+
+footer .footer-column {
+    flex: 1 1 200px;
+    margin: 10px;
+}
+
+footer .footer-column h4 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #fcf346;
+}
+
+footer .footer-column p,
+footer .footer-column a {
+    color: white;
+    font-size: 15px;
+    text-decoration: none;
+}
+
+footer .footer-column a:hover {
+    color: #fcf346;
+}
+
+footer .social-icons {
+    display: flex;
+    gap: 10px;
+}
+
+footer .social-icons a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #fcf346;
+    color: #111;
+    font-size: 20px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+footer .social-icons a:hover {
+    background-color: #fff;
+    color: #0f0;
+}
+
+footer .subscribe {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+footer .subscribe input {
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    flex: 1;
+}
+
+footer .subscribe button {
+    padding: 10px 20px;
+    background-color: #0f0;
+    border: none;
+    color: #111;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+footer .subscribe button:hover {
+    background-color: #fff;
+    color: #0f0;
+}
+
+footer .bottom-text {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 12px;
+    color: #fcf346;
+}

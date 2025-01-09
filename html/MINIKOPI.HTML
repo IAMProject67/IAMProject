@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liquid Freebase/Saltnic - Azuraya Vapor Store</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="searchbar.js" defer></script>
+    <style>
+          :root {
+            --header-bg: rgba(252, 243, 70, 0.9);
+            --header-color: #040400;
+            --nav-link-color: #000;
+            --nav-link-hover-color: #555;
+            --dropdown-bg: #fff;
+            --dropdown-hover-bg: #fcf346;
+            --hero-text-color: black;
+            --button-bg: #fcf346;
+            --button-hover-bg: #000;
+            --button-hover-color: #fff;
+            --footer-bg: #333;
+            --footer-color: #fff;
+            --footer-link-color: #fcf346;
+        }
+
+        html, body {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            margin: 0;
+        }
+
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            background-color: #f4f4f9;
+        }
+
+        header {
+            background-color: var(--header-bg);
+            color: var(--header-color);
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        header .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        header .logo img {
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+            transition: transform 0.3s ease;
+        }
+
+        header .logo img:hover {
+            transform: rotate(360deg);
+        }
+
+        header .logo span {
+            font-size: 30px;
+            font-weight: bold;
+        }
+
+        header nav {
+            display: flex;
+            gap: 20px;
+        }
+
+        header nav a {
+            color: var(--nav-link-color);
+            text-decoration: none;
+            font-size: 20px;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        header nav a:hover {
+            color: var(--nav-link-hover-color);
+        }
+         header .categories-dropdown {
+            position: relative;
+        }
+
+        header .categories-dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        header .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: var(--dropdown-bg);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 10px 0;
+            border-radius: 8px;
+            z-index: 999;
+        }
+
+        header .dropdown-menu a {
+            display: block;
+            padding: 10px 20px;
+            color: var(--nav-link-color);
+            text-decoration: none;
+            font-size: 16px;
+            white-space: nowrap;
+            transition: background-color 0.3s;
+        }
+
+        header .dropdown-menu a:hover {
+            background-color: var(--dropdown-hover-bg);
+        }
+
+        .products {
+            padding: 20px;
+        }
+
+        .products h2 {
+            text-align: center;
+            font-size: 32px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .product-item {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .product-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        .product-item img {
+            width: 150px;
+            height: 150px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            object-fit: cover;
+        }
+
+        .product-item h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .product-item p {
+            font-size: 14px;
+            color: #777;
+            margin-bottom: 15px;
+        }
+
+        .product-item .price {
+            font-size: 16px;
+            font-weight: bold;
+            color: #fcf346;
+            margin-bottom: 10px;
+        }
+
+        .product-item button {
+            padding: 10px 15px;
+            font-size: 14px;
+            background-color: var(--button-bg);
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            align-self: center;
+        }
+
+        .product-item button:hover {
+            background-color: var(--button-hover-bg);
+            color: var(--button-hover-color);
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo">
+        <img src="logo-1.png" alt="Azuraya Logo">
+        <span>AZURAYA</span>
+    </div>
+    <div class="search-box">
+        <input type="text" id="search-input" placeholder="Search for products, brands, or shops..." oninput="showSuggestions()">
+        <div class="suggestions" id="suggestions"></div>
+    </div>
+    <nav>
+        <a href="home.html">Home</a>
+        <div class="categories-dropdown">
+            <a href="#">Categories</a>
+            <div class="dropdown-menu">
+                <a href="ACCESORIST.html">Accesorist</a>
+                <a href="liquid.html">Liquid Freebase/Saltnic</a>
+                <a href="atomizer.html">Atomizer</a>
+                <a href="device.html">Device</a>
+                <a href="minikopi.html">Mini Kopi</a>
+            </div>
+        </div>
+        <a href="produk.html">Products</a>
+        <a href="TETOKAM.html">Tentang Kami</a>
+    </nav>
+    <div class="search-box">
+        <input type="text" id="search-input" placeholder="Search for products, brands, or shops..." oninput="showSuggestions()">
+        <div class="suggestions" id="suggestions"></div>
+    </div>
+</header>
+
+<section class="products">
+    <h2>Minikopi</h2>
+    <div class="product-grid">
+        <!-- Product 1 -->
+        <div class="product-item">
+            <img src="MKP NEW/Dark-Coffee.jpg"Alacarte Cream Poundcake 60ml">
+            <h3>Idealis Dark Coffee</h3>
+            <div class="price">Rp 20.000</div>
+            <button onclick="window.location.href='(MINIKOPI)dark coffee.html'">Add to Cart</button>
+        </div>
+        <!-- Product 2 -->
+        <div class="product-item">
+            <img src="MKP NEW/Creamy-Milks.jpg" alt="AMERICAN BREAKFAST Oatmeal Scotchies V3">
+            <h3>Creamy Milk Series</h3>
+            <div class="price">Rp 17.000</div>
+            <button onclick="window.location.href='(MINIKOPI)creamy milky.html'">Add to Cart</button>
+        </div>
+        <!-- Product 3 -->
+        <div class="product-item">
+            <img src="MKP NEW/Savory.jpg" alt="AVO Avocado Cocoa Rock Salt">
+            <h3>Savory Latte Series</h3>
+            <div class="price">Rp 25.000</div>
+            <button onclick="window.location.href='(MINIKOPI)savory.html'">Add to Cart</button>
+        </div>
+        <!-- Product 4 -->
+        <div class="product-item">
+            <img src="MKP NEW/Creamy-Coffee.jpg" alt="Bananarilla 60ml">
+            <h3>Creamy Coffee Milk</h3>
+            <div class="price">Rp 17.000</div>
+            <button onclick="window.location.href='(MINIKOPI)creamy coffee.html'">Add to Cart</button>
+        </div>
+        <!-- Product 5-->
+        <div class="product-item">
+            <img src="MKP NEW/Soda-Sparkling.jpg" alt="Bequ Strawberry 60ml">
+            <h3>Soda Sparkling</h3>
+            <div class="price">Rp 15.000</div>
+            <button onclick="window.location.href='(MINIKOPI)soda.html'">Add to Cart</button>
+        </div>
+</section>
+
+<footer>
+    <div class="footer-column">
+        <h4>Azuraya Vape Store Purnama</h4>
+        <p>Azuraya merupakan retail Vape Store yang sudah berdiri sejak 8 tahun yang lalu, dimana sudah tidak perlu diragukan lagi pengalaman serta pelayanan yang diberikan oleh Azuraya dimana Azuraya ingin menjadi Vape Store terlengkap, terjangkau, serta terpercaya.</p>
+    </div>
+    <div class="footer-column">
+        <h4>TAUTAN LANGSUNG</h4>
+        <a href="#">Beranda</a><br>
+        <a href="#">Shop</a><br>
+        <a href="#">Tentang Kami</a><br>
+        <a href="#">Mendukung</a><br>
+        <a href="#">Berita</a>
+    </div>
+    <div class="footer-column">
+        <h4>HUBUNGI KAMI</h4>
+        <p>Jika Anda memiliki pertanyaan atau ingin berkomunikasi langsung, hubungi kami sosial media kami yang tercantum.</p>
+        <div class="social-icons">
+            <a href="https://www.instagram.com/azuraya_purnama/" target="_blank">
+                <img src="ig-icon.png" width="23 px" alt="Instagram Icon">
+            </a>
+            <a href="http://wa.link/8zu5j5" target="_blank">
+                <img src="wa-icon.png" width="33 px" alt="WhatsApp Icon">
+            </a>
+            <a href="https://www.tiktok.com/@azuraya.purnama?is_from_webapp=1&sender_device=pc" target="_blank">
+                <img src="tiktok-icon.png" width="30px" alt="TikTok Icon">
+            </a>
+        </div>
+    </div>
+   
+</footer>
+
+<script>
+    function setTheme(theme) {
+        const root = document.documentElement;
+        if (theme === 'default') {
+            root.style.setProperty('--header-bg', '#fcf346');
+            root.style.setProperty('--header-color', '#040400');
+            root.style.setProperty('--nav-link-color', '#000');
+            root.style.setProperty('--nav-link-hover-color', '#555');
+            root.style.setProperty('--hero-text-color', 'black');
+            root.style.setProperty('--button-bg', '#fcf346');
+            root.style.setProperty('--button-hover-bg', '#000');
+            root.style.setProperty('--button-hover-color', '#fff');
+            root.style.setProperty('--footer-bg', '#333');
+            root.style.setProperty('--footer-color', '#fff');
+            root.style.setProperty('--footer-link-color', '#fcf346');
+        }
+    }
+</script>
+</body>
+</html>
