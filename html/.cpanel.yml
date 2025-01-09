@@ -2,7 +2,7 @@
 deployment:
   tasks:
     - export DEPLOYPATH=/home/azurayap/public_html/
-    - /bin/cp home.html $DEPLOYPATH
+    - /bin/cp index.html $DEPLOYPATH
      - /bin/cp device.html $DEPLOYPATH
       - /bin/cp produk.html $DEPLOYPATH
        - /bin/cp liquid.html $DEPLOYPATH
